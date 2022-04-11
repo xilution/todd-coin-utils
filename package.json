@@ -1,6 +1,6 @@
 {
   "name": "@xilution/todd-coin-utils",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "The Todd Coin Cryptocurrency Utility Functions",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -30,7 +30,7 @@
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@xilution/todd-coin-constants": "^1.0.2",
+    "@xilution/todd-coin-constants": "^1.0.3",
     "@xilution/todd-coin-types": "^1.0.1",
     "crypto-js": "^4.1.1",
     "elliptic": "^6.5.4",
