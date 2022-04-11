@@ -6,7 +6,7 @@ const SHA256 = require("crypto-js/sha256");
 
 export const calculateTransactionHash = (transaction: Transaction): string => {
   const { id, from, to, amount, description } = transaction;
-  const parts = id + from + to + amount + description;
+  const parts = id || "" + from || "" + to + amount + description;
 
   return SHA256(parts).toString();
 };

@@ -1,4 +1,4 @@
-# todd-coin-types
+# todd-coin-utils
 
 Todd Coin is a Cryptocurrency for Good.
 
