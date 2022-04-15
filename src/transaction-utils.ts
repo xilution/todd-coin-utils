@@ -17,7 +17,7 @@ export const signTransaction = (
   const signingKey: ec.KeyPair = getKeyPairFromPrivateKey(privateKey);
   const publicKey = signingKey.getPublic("hex");
   if (publicKey !== pendingTransaction.from) {
-    throw new Error("You cannot sign transaction.");
+    throw new Error("unable to sign transaction because the keys don't match");
   }
 
   const transactionHash = calculateTransactionHash(pendingTransaction);
@@ -43,7 +43,7 @@ export const isSignedTransactionValid = (signedTransaction: Transaction) => {
     signedTransaction.signature === undefined ||
     signedTransaction.signature.length === 0
   ) {
-    throw new Error("No signature in this signed transaction");
+    return false;
   }
 
   const publicKey: string = signedTransaction.from;
