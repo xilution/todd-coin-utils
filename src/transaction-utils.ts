@@ -1,8 +1,7 @@
 import { Transaction } from "@xilution/todd-coin-types";
 import { ec } from "elliptic";
 import { getKeyPairFromPrivateKey, getKeyPairFromPublicKey } from "./key-utils";
-
-const SHA256 = require("crypto-js/sha256");
+import SHA256 from "crypto-js/sha256";
 
 export const calculateTransactionHash = (transaction: Transaction): string => {
   const { id, from, to, amount, description } = transaction;

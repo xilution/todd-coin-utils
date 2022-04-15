@@ -47,6 +47,6 @@ export const getParticipantBalance = (
   }, 0);
 
 export default {
-    isChainValid,
-    getParticipantBalance,
-}
+  isChainValid,
+  getParticipantBalance,
+};

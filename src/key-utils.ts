@@ -29,4 +29,4 @@ export default {
   generateParticipantKey,
   getKeyPairFromPrivateKey,
   getKeyPairFromPublicKey,
-}
+};

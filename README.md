@@ -17,7 +17,3 @@ These are Todd Coin Utility Functions.
 Hot rebuild when `src` changes
 
 `npm run watch`
-
-## To Release
-
-`npm run release`

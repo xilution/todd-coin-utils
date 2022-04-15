@@ -1,4 +1,9 @@
-import { Block, Participant, Roles, Transaction } from "@xilution/todd-coin-types";
+import {
+  Block,
+  Participant,
+  Roles,
+  Transaction,
+} from "@xilution/todd-coin-types";
 import {
   DIFFICULTY,
   GENESIS_BLOCK_ID,
@@ -14,8 +19,7 @@ import {
   isSignedTransactionValid,
 } from "./transaction-utils";
 import { v4 } from "uuid";
-
-const SHA256 = require("crypto-js/sha256");
+import SHA256 from "crypto-js/sha256";
 
 export const calculateBlockHash = (block: Omit<Block, "hash">): string => {
   const { id, transactions, nonce, previousHash } = block;
@@ -106,4 +110,4 @@ export default {
   createGenesisParticipant,
   mineNextBlock,
   hasValidTransactions,
-}
+};
