@@ -17,7 +17,9 @@ export const signTransaction = (
   const signingKey: ec.KeyPair = getKeyPairFromPrivateKey(privateKey);
   const publicKey = signingKey.getPublic("hex");
   if (publicKey !== pendingTransaction.from) {
-    throw new Error("unable to sign the pending transaction because the private key is invalid");
+    throw new Error(
+      "unable to sign the pending transaction because the private key is invalid"
+    );
   }
 
   const transactionHash = calculateTransactionHash(pendingTransaction);
