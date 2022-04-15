@@ -11,7 +11,7 @@
     "clean": "rm -rf ./coverage ./dist",
     "format": "prettier --write .",
     "watch": "nodemon --watch src -e ts --exec \"npm run build\"",
-    "verify": "prettier --check . && eslint . --ext .js,.ts && npm run test",
+    "verify": "prettier --check . && eslint . --ext .js,.ts && npm run test && npm run build",
     "semantic-release": "semantic-release",
     "test": "jest ./test",
     "prepare": "husky install"
