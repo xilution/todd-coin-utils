@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/xilution/todd-coin-utils/compare/v1.1.0...v1.1.1) (2022-04-15)
+
+
+### Bug Fixes
+
+* removed unnecessary function from index ([e55c8f1](https://github.com/xilution/todd-coin-utils/commit/e55c8f13a1320ed77c6c37f617e67b2b97f59332))
+
 # [1.1.0](https://github.com/xilution/todd-coin-utils/compare/v1.0.1...v1.1.0) (2022-04-15)
 
 
