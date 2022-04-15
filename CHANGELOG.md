@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/xilution/todd-coin-utils/compare/v1.0.1...v1.1.0) (2022-04-15)
+
+
+### Features
+
+* added a fake function ([a741871](https://github.com/xilution/todd-coin-utils/commit/a7418710ae5012e1ad5ba1031903f141450e1c83))
+
 ## [1.0.1](https://github.com/xilution/todd-coin-utils/compare/v1.0.0...v1.0.1) (2022-04-15)
 
 
