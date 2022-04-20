@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/xilution/todd-coin-utils/compare/v1.1.1...v2.0.0) (2022-04-20)
+
+
+### Features
+
+* replaced mineNextBlock with mineNewBlock function ([ee4b0f3](https://github.com/xilution/todd-coin-utils/commit/ee4b0f3def89f38c1bbb6808ca92bf501a55f236))
+
+
+### BREAKING CHANGES
+
+* removed mineNextBlock function
+
 ## [1.1.1](https://github.com/xilution/todd-coin-utils/compare/v1.1.0...v1.1.1) (2022-04-15)
 
 
