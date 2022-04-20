@@ -66,11 +66,13 @@ export const createGenesisParticipant = (): Participant => ({
   roles: [Roles.VOLUNTEER],
 });
 
-export const mineNextBlock = (
+export const mineNewBlock = (
   latestBlock: Block,
-  createdAt: string,
   signedTransactions: Transaction[]
 ): Block => {
+  const now = Date.now();
+  const createdAt = new Date(now).toISOString();
+
   let newBlockNetHash: Omit<Block, "hash"> = {
     id: v4(),
     createdAt,
@@ -91,6 +93,8 @@ export const mineNextBlock = (
     hash = calculateBlockHash(newBlockNetHash);
   }
 
+  console.log(`took ${Date.now() - now} ms to mine a new block`);
+
   return { ...newBlockNetHash, hash };
 };
 
@@ -108,6 +112,6 @@ export default {
   calculateBlockHash,
   createGenesisBlock,
   createGenesisParticipant,
-  mineNextBlock,
+  mineNewBlock,
   hasValidTransactions,
 };
