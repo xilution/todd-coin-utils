@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/xilution/todd-coin-utils/compare/v2.0.0...v2.1.0) (2022-04-22)
+
+
+### Features
+
+* added block sequenceId to mining ([a9760d3](https://github.com/xilution/todd-coin-utils/commit/a9760d381be211162beb37a302d3844f6fd7e32f))
+
 # [2.0.0](https://github.com/xilution/todd-coin-utils/compare/v1.1.1...v2.0.0) (2022-04-20)
 
 
