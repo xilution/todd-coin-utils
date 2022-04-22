@@ -32,7 +32,7 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@xilution/todd-coin-constants": "^1.1.0",
-    "@xilution/todd-coin-types": "^1.1.0",
+    "@xilution/todd-coin-types": "^1.3.0",
     "crypto-js": "^4.1.1",
     "elliptic": "^6.5.4",
     "uuid": "^8.3.2"

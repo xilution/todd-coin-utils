@@ -38,6 +38,7 @@ export const calculateBlockHash = (block: Omit<Block, "hash">): string => {
 export const createGenesisBlock = (): Block => {
   const genesisBlockNetHash: Omit<Block, "hash"> = {
     id: GENESIS_BLOCK_ID,
+    sequenceId: 0,
     transactions: [
       {
         id: GENESIS_TRANSACTION_ID,
@@ -72,9 +73,12 @@ export const mineNewBlock = (
 ): Block => {
   const now = Date.now();
   const createdAt = new Date(now).toISOString();
+  const { sequenceId } = latestBlock;
+  const nextSequenceId = sequenceId + 1;
 
   let newBlockNetHash: Omit<Block, "hash"> = {
     id: v4(),
+    sequenceId: nextSequenceId,
     createdAt,
     updatedAt: createdAt,
     transactions: signedTransactions,
