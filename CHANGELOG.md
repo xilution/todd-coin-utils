@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/xilution/todd-coin-utils/compare/v3.0.0...v3.1.0) (2022-04-23)
+
+
+### Features
+
+* removed constraints from genesis block and participant creation ([a9d56cd](https://github.com/xilution/todd-coin-utils/commit/a9d56cd6964c069154c9c76cd6d5333fe11d36cf))
+
 # [3.0.0](https://github.com/xilution/todd-coin-utils/compare/v2.1.0...v3.0.0) (2022-04-23)
 
 
