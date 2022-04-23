@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/xilution/todd-coin-utils/compare/v2.1.0...v3.0.0) (2022-04-23)
+
+
+### Features
+
+* integrated new todd coin types ([d286698](https://github.com/xilution/todd-coin-utils/commit/d286698a01954d00c355e1928c773d31be9121ae))
+
+
+### BREAKING CHANGES
+
+* too many to list
+
 # [2.1.0](https://github.com/xilution/todd-coin-utils/compare/v2.0.0...v2.1.0) (2022-04-22)
 
 
