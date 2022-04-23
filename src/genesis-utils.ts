@@ -54,7 +54,7 @@ export const createGenesisParticipant = (
   lastName: string,
   email: string,
   password: string
-): Participant => {
+): { genesisParticipant: Participant; privateKey: string } => {
   const participantKey: ParticipantKey = generateParticipantKey(
     DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS
   );
@@ -74,9 +74,7 @@ export const createGenesisParticipant = (
     roles: [ParticipantRole.VOLUNTEER],
   };
 
-  console.log(
-    `The genesis participant's initial private key is: ${participantKey.private}. It is effective until: ${participantKey.effective.to}. Please generate a new private key ASAP.`
-  );
+  const privateKey = participantKey.private as string;
 
-  return genesisParticipant;
+  return { genesisParticipant, privateKey };
 };
