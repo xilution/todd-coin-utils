@@ -3,13 +3,15 @@ import { Participant, ParticipantKey } from "@xilution/todd-coin-types";
 import dayjs from "dayjs";
 import { DEFAULT_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS } from "@xilution/todd-coin-constants";
 
-export const generateParticipantKey = (): ParticipantKey => {
+export const generateParticipantKey = (
+  effectiveToInDays: number = DEFAULT_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS
+): ParticipantKey => {
   const client: ec = new ec("secp256k1");
   const key: ec.KeyPair = client.genKeyPair();
   const publicKey: string = key.getPublic("hex");
   const privateKey: string = key.getPrivate("hex");
   const now = dayjs();
-  const then = now.add(DEFAULT_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS, "days");
+  const then = now.add(effectiveToInDays, "days");
 
   return {
     public: publicKey,

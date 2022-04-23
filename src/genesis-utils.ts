@@ -1,29 +1,29 @@
 import {
   Block,
   Participant,
+  ParticipantKey,
   ParticipantRole,
   TransactionType,
 } from "@xilution/todd-coin-types";
 import dayjs from "dayjs";
-import {
-  GENESIS_BLOCK_ID,
-  GENESIS_HASH,
-  GENESIS_NONCE,
-  GENESIS_PARTICIPANT_ID,
-  GENESIS_PARTICIPANT_PUBLIC_KEY,
-  GENESIS_REWARD,
-  GENESIS_TRANSACTION_ID,
-} from "@xilution/todd-coin-constants";
-import { calculateBlockHash } from "./hash-utils";
+import { calculateBlockHash, calculateStringHash } from "./hash-utils";
+import { generateParticipantKey } from "./key-utils";
+import { v4 } from "uuid";
+
+const GENESIS_REWARD = 50;
+const GENESIS_HASH =
+  "0000000000000000000000000000000000000000000000000000000000000000";
+const GENESIS_NONCE = 0;
+const DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS = 1;
 
 export const createGenesisBlock = (genesisParticipant: Participant): Block => {
   const now = dayjs();
   const genesisBlockNetHash: Omit<Block, "hash"> = {
-    id: GENESIS_BLOCK_ID,
+    id: v4(),
     sequenceId: 0,
     transactions: [
       {
-        id: GENESIS_TRANSACTION_ID,
+        id: v4(),
         to: genesisParticipant,
         goodPoints: GENESIS_REWARD,
         description: "Initial set up reward",
@@ -42,6 +42,7 @@ export const createGenesisBlock = (genesisParticipant: Participant): Block => {
     previousHash: GENESIS_HASH,
   };
   const hash: string = calculateBlockHash(genesisBlockNetHash);
+
   return {
     ...genesisBlockNetHash,
     hash,
@@ -54,23 +55,28 @@ export const createGenesisParticipant = (
   email: string,
   password: string
 ): Participant => {
-  const now = dayjs();
-  const then = now.add(1000, "years");
-  return {
-    id: GENESIS_PARTICIPANT_ID,
+  const participantKey: ParticipantKey = generateParticipantKey(
+    DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS
+  );
+
+  const genesisParticipant: Participant = {
+    id: v4(),
     firstName,
     lastName,
     email,
-    password,
+    password: calculateStringHash(password),
     keys: [
       {
-        public: GENESIS_PARTICIPANT_PUBLIC_KEY,
-        effective: {
-          from: now.toISOString(),
-          to: then.toISOString(),
-        },
+        public: participantKey.public,
+        effective: participantKey.effective,
       },
     ],
     roles: [ParticipantRole.VOLUNTEER],
   };
+
+  console.log(
+    `The genesis participant's initial private key is: ${participantKey.private}. It is effective until: ${participantKey.effective.to}. Please generate a new private key ASAP.`
+  );
+
+  return genesisParticipant;
 };
