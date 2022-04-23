@@ -31,9 +31,10 @@
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@xilution/todd-coin-constants": "^1.1.0",
-    "@xilution/todd-coin-types": "^1.3.0",
+    "@xilution/todd-coin-constants": "^1.2.0",
+    "@xilution/todd-coin-types": "^2.0.4",
     "crypto-js": "^4.1.1",
+    "dayjs": "^1.11.1",
     "elliptic": "^6.5.4",
     "uuid": "^8.3.2"
   },

@@ -1,5 +1,6 @@
-import { Block, Transaction } from "@xilution/todd-coin-types";
-import { calculateBlockHash, hasValidTransactions } from "./block-utils";
+import { Block } from "@xilution/todd-coin-types";
+import { hasValidTransactions } from "./block-utils";
+import { calculateBlockHash } from "./hash-utils";
 
 export const isChainValid = (blocks: Block[]): boolean => {
   for (let i = 1; i < blocks.length; i++) {
@@ -20,33 +21,4 @@ export const isChainValid = (blocks: Block[]): boolean => {
   }
 
   return true;
-};
-
-export const getParticipantBalance = (
-  blocks: Block[],
-  participantPublicKey: string
-): number =>
-  blocks.reduce((chainBalance: number, block: Block) => {
-    return (
-      chainBalance +
-      block.transactions.reduce(
-        (transactionBalance: number, transaction: Transaction) => {
-          if (transaction.to === participantPublicKey) {
-            return transactionBalance + Number(transaction.amount);
-          }
-
-          if (transaction.from === participantPublicKey) {
-            return transactionBalance - Number(transaction.amount);
-          }
-
-          return transactionBalance;
-        },
-        0
-      )
-    );
-  }, 0);
-
-export default {
-  isChainValid,
-  getParticipantBalance,
 };

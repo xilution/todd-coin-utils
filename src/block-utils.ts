@@ -1,75 +1,16 @@
 import {
   Block,
-  Participant,
-  Roles,
-  Transaction,
+  SignedTransaction,
+  TransactionDetails,
 } from "@xilution/todd-coin-types";
-import {
-  DIFFICULTY,
-  GENESIS_BLOCK_ID,
-  GENESIS_HASH,
-  GENESIS_NONCE,
-  GENESIS_PARTICIPANT_ID,
-  GENESIS_PARTICIPANT_PUBLIC_KEY,
-  GENESIS_REWARD,
-  GENESIS_TRANSACTION_ID,
-} from "@xilution/todd-coin-constants";
-import {
-  calculateTransactionHash,
-  isSignedTransactionValid,
-} from "./transaction-utils";
+import { DIFFICULTY } from "@xilution/todd-coin-constants";
+import { isSignedTransactionValid } from "./transaction-utils";
 import { v4 } from "uuid";
-import SHA256 from "crypto-js/sha256";
-
-export const calculateBlockHash = (block: Omit<Block, "hash">): string => {
-  const { id, transactions, nonce, previousHash } = block;
-  const transactionsPart = JSON.stringify(
-    transactions.map((transaction: Transaction) =>
-      calculateTransactionHash(transaction)
-    )
-  );
-  const nonceAsStr = nonce.toString();
-
-  const parts = id + transactionsPart + nonceAsStr + previousHash;
-
-  return SHA256(parts).toString();
-};
-
-export const createGenesisBlock = (): Block => {
-  const genesisBlockNetHash: Omit<Block, "hash"> = {
-    id: GENESIS_BLOCK_ID,
-    sequenceId: 0,
-    transactions: [
-      {
-        id: GENESIS_TRANSACTION_ID,
-        to: GENESIS_PARTICIPANT_PUBLIC_KEY,
-        amount: GENESIS_REWARD,
-        description: "Initial set up reward",
-      },
-    ],
-    nonce: GENESIS_NONCE,
-    previousHash: GENESIS_HASH,
-  };
-  const hash: string = calculateBlockHash(genesisBlockNetHash);
-  return {
-    ...genesisBlockNetHash,
-    hash,
-  };
-};
-
-export const createGenesisParticipant = (): Participant => ({
-  id: GENESIS_PARTICIPANT_ID,
-  firstName: "Todd",
-  lastName: "Brunia",
-  key: {
-    public: GENESIS_PARTICIPANT_PUBLIC_KEY,
-  },
-  roles: [Roles.VOLUNTEER],
-});
+import { calculateBlockHash } from "./hash-utils";
 
 export const mineNewBlock = (
   latestBlock: Block,
-  signedTransactions: Transaction[]
+  signedTransactions: SignedTransaction<TransactionDetails>[]
 ): Block => {
   const now = Date.now();
   const createdAt = new Date(now).toISOString();
@@ -110,12 +51,4 @@ export const hasValidTransactions = (block: Block): boolean => {
   }
 
   return true;
-};
-
-export default {
-  calculateBlockHash,
-  createGenesisBlock,
-  createGenesisParticipant,
-  mineNewBlock,
-  hasValidTransactions,
 };

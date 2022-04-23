@@ -1,58 +1,69 @@
-import { Transaction } from "@xilution/todd-coin-types";
-import { ec } from "elliptic";
-import { getKeyPairFromPrivateKey, getKeyPairFromPublicKey } from "./key-utils";
-import SHA256 from "crypto-js/sha256";
-
-export const calculateTransactionHash = (transaction: Transaction): string => {
-  const { id, from, to, amount, description } = transaction;
-  const parts = id || "" + from || "" + to + amount + description;
-
-  return SHA256(parts).toString();
-};
+import {
+  ParticipantKey,
+  PendingTransaction,
+  SignedTransaction,
+  TransactionDetails,
+} from "@xilution/todd-coin-types";
+import {
+  getEffectiveParticipantKey,
+  getParticipantKeyForSignedHash,
+  getSignature,
+} from "./key-utils";
+import { calculateTransactionHash } from "./hash-utils";
 
 export const signTransaction = (
-  pendingTransaction: Transaction,
+  pendingTransaction: PendingTransaction<TransactionDetails>,
+  goodPoints: number,
   privateKey: string
-): Transaction => {
-  const signingKey: ec.KeyPair = getKeyPairFromPrivateKey(privateKey);
-  const publicKey = signingKey.getPublic("hex");
-  if (publicKey !== pendingTransaction.from) {
+): SignedTransaction<TransactionDetails> => {
+  const { from } = pendingTransaction;
+
+  if (from === undefined) {
+    throw new Error(
+      "unable to sign the pending transaction because the from participant is undefined"
+    );
+  }
+
+  const effectiveParticipantKey: ParticipantKey | undefined =
+    getEffectiveParticipantKey(from, privateKey);
+
+  if (effectiveParticipantKey === undefined) {
     throw new Error(
       "unable to sign the pending transaction because the private key is invalid"
     );
   }
 
-  const transactionHash = calculateTransactionHash(pendingTransaction);
-  const signature = signingKey.sign(transactionHash, "base64");
+  const transactionHash = calculateTransactionHash({
+    ...pendingTransaction,
+    goodPoints,
+  });
+
+  const signature = getSignature(transactionHash, privateKey);
 
   return {
-    id: pendingTransaction.id,
-    createdAt: pendingTransaction.createdAt,
-    from: pendingTransaction.from,
-    to: pendingTransaction.to,
-    amount: pendingTransaction.amount,
-    description: pendingTransaction.description,
-    signature: signature.toDER("hex"),
+    ...pendingTransaction,
+    goodPoints,
+    signature: signature,
   };
 };
 
-export const isSignedTransactionValid = (signedTransaction: Transaction) => {
-  if (signedTransaction.from === undefined) {
+export const isSignedTransactionValid = (
+  signedTransaction: SignedTransaction<TransactionDetails>
+): boolean => {
+  const { from, signature } = signedTransaction;
+
+  if (from === undefined) {
     return true;
   }
 
-  if (
-    signedTransaction.signature === undefined ||
-    signedTransaction.signature.length === 0
-  ) {
+  if (signature === undefined || signature.length === 0) {
     return false;
   }
 
-  const publicKey: string = signedTransaction.from;
-  const signingKey: ec.KeyPair = getKeyPairFromPublicKey(publicKey);
+  const hash = calculateTransactionHash(signedTransaction);
 
-  return signingKey.verify(
-    calculateTransactionHash(signedTransaction),
-    signedTransaction.signature
-  );
+  const participantKey: ParticipantKey | undefined =
+    getParticipantKeyForSignedHash(from, hash, signature);
+
+  return participantKey !== undefined;
 };
