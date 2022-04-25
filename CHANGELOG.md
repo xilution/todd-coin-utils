@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/xilution/todd-coin-utils/compare/v5.1.0...v5.1.1) (2022-04-25)
+
+
+### Bug Fixes
+
+* removed unnecessary console.log ([4ed44cb](https://github.com/xilution/todd-coin-utils/commit/4ed44cbed7e680d70771baa541191d8bc60e704e))
+
 # [5.1.0](https://github.com/xilution/todd-coin-utils/compare/v5.0.0...v5.1.0) (2022-04-25)
 
 
