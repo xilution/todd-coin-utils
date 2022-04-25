@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/xilution/todd-coin-utils/compare/v4.1.0...v5.0.0) (2022-04-25)
+
+
+### Features
+
+* returned Participant for createGenesisParticipant ([138001c](https://github.com/xilution/todd-coin-utils/commit/138001c276bd702b85b421708da87c8d8769ff0d))
+
+
+### BREAKING CHANGES
+
+* change response signature of createGenesisParticipant again
+
 # [4.1.0](https://github.com/xilution/todd-coin-utils/compare/v4.0.0...v4.1.0) (2022-04-23)
 
 
