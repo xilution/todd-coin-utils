@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/xilution/todd-coin-utils/compare/v5.0.0...v5.1.0) (2022-04-25)
+
+
+### Features
+
+* added id to create genesis participant key ([937b2d5](https://github.com/xilution/todd-coin-utils/commit/937b2d530d70a63281eff9927b192b0ce061a7ed))
+
 # [5.0.0](https://github.com/xilution/todd-coin-utils/compare/v4.1.0...v5.0.0) (2022-04-25)
 
 
