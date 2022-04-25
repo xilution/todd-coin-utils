@@ -54,12 +54,12 @@ export const createGenesisParticipant = (
   lastName: string,
   email: string,
   password: string
-): { genesisParticipant: Participant; privateKey: string } => {
+): Participant => {
   const participantKey: ParticipantKey = generateParticipantKey(
     DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS
   );
 
-  const genesisParticipant: Participant = {
+  return {
     id: v4(),
     firstName,
     lastName,
@@ -68,13 +68,10 @@ export const createGenesisParticipant = (
     keys: [
       {
         public: participantKey.public,
+        private: participantKey.private,
         effective: participantKey.effective,
       },
     ],
     roles: [ParticipantRole.VOLUNTEER],
   };
-
-  const privateKey = participantKey.private as string;
-
-  return { genesisParticipant, privateKey };
 };
