@@ -38,8 +38,6 @@ export const mineNewBlock = (
     hash = calculateBlockHash(newBlockNetHash);
   }
 
-  console.log(`took ${Date.now() - now} ms to mine a new block`);
-
   return { ...newBlockNetHash, hash };
 };
 
