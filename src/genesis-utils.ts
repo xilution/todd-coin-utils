@@ -67,6 +67,7 @@ export const createGenesisParticipant = (
     password: calculateStringHash(password),
     keys: [
       {
+        id: v4(),
         public: participantKey.public,
         private: participantKey.private,
         effective: participantKey.effective,
