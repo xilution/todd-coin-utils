@@ -43,7 +43,7 @@ export const getEffectiveParticipantKey = (
   const publicKey = signingKey.getPublic("hex");
   const now = dayjs();
 
-  return participant?.keys.find((participantKey: ParticipantKey) => {
+  return participant.keys?.find((participantKey: ParticipantKey) => {
     if (
       participantKey.public === publicKey &&
       dayjs(participantKey.effective.from).isBefore(now) &&
@@ -59,7 +59,7 @@ export const getParticipantKeyForSignedHash = (
   hash: string,
   signature: string
 ): ParticipantKey | undefined => {
-  return participant.keys.find((participantKey: ParticipantKey) => {
+  return participant.keys?.find((participantKey: ParticipantKey) => {
     const signingKey: ec.KeyPair = getKeyPairFromPublicKey(
       participantKey.public
     );
