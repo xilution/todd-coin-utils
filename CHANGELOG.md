@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/xilution/todd-coin-utils/compare/v5.3.0...v5.3.1) (2022-05-04)
+
+
+### Bug Fixes
+
+* added participantUtils to index ([78c44a6](https://github.com/xilution/todd-coin-utils/commit/78c44a63123c7e158020925ab220740a6fd8dce2))
+
 # [5.3.0](https://github.com/xilution/todd-coin-utils/compare/v5.2.0...v5.3.0) (2022-04-26)
 
 
