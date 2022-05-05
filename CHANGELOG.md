@@ -1,3 +1,15 @@
+# [5.4.0](https://github.com/xilution/todd-coin-utils/compare/v5.3.1...v5.4.0) (2022-05-05)
+
+
+### Bug Fixes
+
+* removed unnecessary validation from signTransaction ([1cc7d83](https://github.com/xilution/todd-coin-utils/commit/1cc7d83133e85bee1708cbb934a6cd0c926cbd29))
+
+
+### Features
+
+* bumped todd-coin-types-version ([f0cec53](https://github.com/xilution/todd-coin-utils/commit/f0cec53617f170b789cb09e12566de997a09079b))
+
 ## [5.3.1](https://github.com/xilution/todd-coin-utils/compare/v5.3.0...v5.3.1) (2022-05-04)
 
 
