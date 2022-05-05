@@ -4,11 +4,7 @@ import {
   SignedTransaction,
   TransactionDetails,
 } from "@xilution/todd-coin-types";
-import {
-  getEffectiveParticipantKey,
-  getParticipantKeyForSignedHash,
-  getSignature,
-} from "./key-utils";
+import { getParticipantKeyForSignedHash, getSignature } from "./key-utils";
 import { calculateTransactionHash } from "./hash-utils";
 
 export const signTransaction = (
@@ -16,23 +12,6 @@ export const signTransaction = (
   goodPoints: number,
   privateKey: string
 ): SignedTransaction<TransactionDetails> => {
-  const { from } = pendingTransaction;
-
-  if (from === undefined) {
-    throw new Error(
-      "unable to sign the pending transaction because the from participant is undefined"
-    );
-  }
-
-  const effectiveParticipantKey: ParticipantKey | undefined =
-    getEffectiveParticipantKey(from, privateKey);
-
-  if (effectiveParticipantKey === undefined) {
-    throw new Error(
-      "unable to sign the pending transaction because the private key is invalid"
-    );
-  }
-
   const transactionHash = calculateTransactionHash({
     ...pendingTransaction,
     goodPoints,
@@ -43,7 +22,7 @@ export const signTransaction = (
   return {
     ...pendingTransaction,
     goodPoints,
-    signature: signature,
+    signature,
   };
 };
 
