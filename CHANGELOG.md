@@ -1,3 +1,10 @@
+# [5.5.0](https://github.com/xilution/todd-coin-utils/compare/v5.4.0...v5.5.0) (2022-05-06)
+
+
+### Features
+
+* bumped todd-coin-types version ([cc4f713](https://github.com/xilution/todd-coin-utils/commit/cc4f7130f6fc016aba410ffd93085be5be2ff88f))
+
 # [5.4.0](https://github.com/xilution/todd-coin-utils/compare/v5.3.1...v5.4.0) (2022-05-05)
 
 
