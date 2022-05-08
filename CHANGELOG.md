@@ -1,3 +1,17 @@
+# [7.0.0](https://github.com/xilution/todd-coin-utils/compare/v6.0.0...v7.0.0) (2022-05-08)
+
+
+### Features
+
+* adapted to new types ([e1e5d71](https://github.com/xilution/todd-coin-utils/commit/e1e5d71d2f90968dbc20878531b0b84ab6bd0fa3))
+* bumped todd-coin-types version ([6f9625e](https://github.com/xilution/todd-coin-utils/commit/6f9625eab3b96e42b0ac944004772835abc36b4a))
+* created an organization utils module ([c58506d](https://github.com/xilution/todd-coin-utils/commit/c58506d9f00211786a57c38a5b7f27bc5b690e2f))
+
+
+### BREAKING CHANGES
+
+* used new todd-coin-type signatures
+
 # [6.0.0](https://github.com/xilution/todd-coin-utils/compare/v5.5.0...v6.0.0) (2022-05-08)
 
 
