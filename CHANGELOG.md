@@ -1,3 +1,10 @@
+# [7.2.0](https://github.com/xilution/todd-coin-utils/compare/v7.1.0...v7.2.0) (2022-05-08)
+
+
+### Features
+
+* added createcreateToddCoinOrganization function ([8d8ea8b](https://github.com/xilution/todd-coin-utils/commit/8d8ea8bd131befcd32a0d83de68edd179c3919b1))
+
 # [7.1.0](https://github.com/xilution/todd-coin-utils/compare/v7.0.1...v7.1.0) (2022-05-08)
 
 
