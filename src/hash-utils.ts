@@ -35,8 +35,24 @@ export const calculateTransactionHash = (
         "participantKey"
       >
 ): string => {
-  const { id, from, to, goodPoints, description } = transaction;
-  const parts = id || "" + from || "" + to + goodPoints + description;
+  const {
+    id,
+    fromParticipant,
+    toParticipant,
+    fromOrganization,
+    toOrganization,
+    goodPoints,
+    description,
+    type,
+    details,
+  } = transaction;
+  const parts =
+    id ||
+    "" + fromParticipant ||
+    "" + toParticipant ||
+    "" + fromOrganization ||
+    "" + toOrganization ||
+    "" + goodPoints + description + type + details;
 
   return calculateStringHash(parts);
 };

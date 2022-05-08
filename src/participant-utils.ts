@@ -26,7 +26,7 @@ export const calculateAccumulatedGoodPoints = (
           transactionBalance: number,
           transaction: BlockTransaction<TransactionDetails>
         ) => {
-          if (transaction.to.id === participant.id) {
+          if (transaction.toParticipant?.id === participant.id) {
             return transactionBalance + Number(transaction.goodPoints);
           }
 

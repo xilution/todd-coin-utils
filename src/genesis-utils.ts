@@ -1,6 +1,5 @@
 import {
   Block,
-  Organization,
   Participant,
   ParticipantKey,
   ParticipantRole,
@@ -22,8 +21,8 @@ const GENESIS_NONCE = 0;
 const DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS = 1;
 
 export const createGenesisBlock = (
-  from: Participant | Organization,
-  to: Participant,
+  fromParticipant: Participant,
+  toParticipant: Participant,
   participantKey: ParticipantKey,
   privateKey: string
 ): Block => {
@@ -32,8 +31,8 @@ export const createGenesisBlock = (
   const toDate: string = now.toISOString();
   const pendingTransaction: PendingTransaction<TransactionDetails> = {
     id: v4(),
-    from,
-    to,
+    fromParticipant,
+    toParticipant,
     description: "Initial set up reward",
     type: TransactionType.TIME,
     details: {
