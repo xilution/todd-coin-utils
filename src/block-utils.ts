@@ -41,7 +41,7 @@ export const mineNewBlock = (
   return { ...newBlockNetHash, hash };
 };
 
-export const hasValidTransactions = (block: Block): boolean => {
+export const isBlockValid = (block: Block): boolean => {
   for (const transaction of block.transactions) {
     if (!isSignedTransactionValid(transaction)) {
       return false;

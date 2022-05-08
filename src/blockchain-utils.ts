@@ -1,5 +1,5 @@
 import { Block } from "@xilution/todd-coin-types";
-import { hasValidTransactions } from "./block-utils";
+import { isBlockValid } from "./block-utils";
 import { calculateBlockHash } from "./hash-utils";
 
 export const isChainValid = (blocks: Block[]): boolean => {
@@ -11,7 +11,7 @@ export const isChainValid = (blocks: Block[]): boolean => {
       return false;
     }
 
-    if (!hasValidTransactions(currentBlock)) {
+    if (!isBlockValid(currentBlock)) {
       return false;
     }
 
