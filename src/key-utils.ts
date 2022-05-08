@@ -54,18 +54,14 @@ export const getEffectiveParticipantKey = (
   });
 };
 
-export const getParticipantKeyForSignedHash = (
-  participant: Participant,
+export const isSignatureValid = (
+  participantKey: ParticipantKey,
   hash: string,
   signature: string
-): ParticipantKey | undefined => {
-  return participant.keys?.find((participantKey: ParticipantKey) => {
-    const signingKey: ec.KeyPair = getKeyPairFromPublicKey(
-      participantKey.public
-    );
+): boolean => {
+  const signingKey: ec.KeyPair = getKeyPairFromPublicKey(participantKey.public);
 
-    return signingKey.verify(hash, signature);
-  });
+  return signingKey.verify(hash, signature);
 };
 
 export const getSignature = (str: string, privateKey: string): string => {
