@@ -1,3 +1,10 @@
+## [7.0.1](https://github.com/xilution/todd-coin-utils/compare/v7.0.0...v7.0.1) (2022-05-08)
+
+
+### Bug Fixes
+
+* removed types utils ([02818b0](https://github.com/xilution/todd-coin-utils/commit/02818b014c49c1bfb2c7945d4a932449b44a34c5))
+
 # [7.0.0](https://github.com/xilution/todd-coin-utils/compare/v6.0.0...v7.0.0) (2022-05-08)
 
 
