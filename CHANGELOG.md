@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/xilution/todd-coin-utils/compare/v7.0.1...v7.1.0) (2022-05-08)
+
+
+### Features
+
+* bumped todd-coin-constants version ([4c57255](https://github.com/xilution/todd-coin-utils/commit/4c57255cb86fb313ff48f3a217a2cf645e49d446))
+
 ## [7.0.1](https://github.com/xilution/todd-coin-utils/compare/v7.0.0...v7.0.1) (2022-05-08)
 
 
