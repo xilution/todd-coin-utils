@@ -1,14 +1,19 @@
 import {
   Block,
+  Organization,
   Participant,
   ParticipantKey,
   ParticipantRole,
+  PendingTransaction,
+  SignedTransaction,
+  TransactionDetails,
   TransactionType,
 } from "@xilution/todd-coin-types";
 import dayjs from "dayjs";
 import { calculateBlockHash, calculateStringHash } from "./hash-utils";
 import { generateParticipantKey } from "./key-utils";
 import { v4 } from "uuid";
+import { transactionUtils } from "./index";
 
 const GENESIS_REWARD = 50;
 const GENESIS_HASH =
@@ -16,28 +21,43 @@ const GENESIS_HASH =
 const GENESIS_NONCE = 0;
 const DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS = 1;
 
-export const createGenesisBlock = (genesisParticipant: Participant): Block => {
+export const createGenesisBlock = (
+  from: Participant | Organization,
+  to: Participant,
+  participantKey: ParticipantKey,
+  privateKey: string
+): Block => {
   const now = dayjs();
+  const fromDate: string = now.toISOString();
+  const toDate: string = now.toISOString();
+  const pendingTransaction: PendingTransaction<TransactionDetails> = {
+    id: v4(),
+    from,
+    to,
+    description: "Initial set up reward",
+    type: TransactionType.TIME,
+    details: {
+      dateRanges: [
+        {
+          from: fromDate,
+          to: toDate,
+        },
+      ],
+    },
+  };
+
+  const signedTransaction: SignedTransaction<TransactionDetails> =
+    transactionUtils.signTransaction(
+      pendingTransaction,
+      GENESIS_REWARD,
+      participantKey,
+      privateKey
+    );
+
   const genesisBlockNetHash: Omit<Block, "hash"> = {
     id: v4(),
     sequenceId: 0,
-    transactions: [
-      {
-        id: v4(),
-        to: genesisParticipant,
-        goodPoints: GENESIS_REWARD,
-        description: "Initial set up reward",
-        type: TransactionType.TIME,
-        details: {
-          dateRanges: [
-            {
-              from: now.toISOString(),
-              to: now.toISOString(),
-            },
-          ],
-        },
-      },
-    ],
+    transactions: [signedTransaction],
     nonce: GENESIS_NONCE,
     previousHash: GENESIS_HASH,
   };
@@ -55,24 +75,18 @@ export const createGenesisParticipant = (
   email: string,
   password: string
 ): Participant => {
-  const participantKey: ParticipantKey = generateParticipantKey(
-    DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS
-  );
-
   return {
     id: v4(),
     firstName,
     lastName,
     email,
     password: calculateStringHash(password),
-    keys: [
-      {
-        id: v4(),
-        public: participantKey.public,
-        private: participantKey.private,
-        effective: participantKey.effective,
-      },
-    ],
     roles: [ParticipantRole.VOLUNTEER],
   };
+};
+
+export const createGenesisParticipantKey = (): ParticipantKey => {
+  return generateParticipantKey(
+    DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS
+  );
 };
