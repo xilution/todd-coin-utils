@@ -4,12 +4,13 @@ import {
   SignedTransaction,
   TransactionDetails,
 } from "@xilution/todd-coin-types";
-import { getParticipantKeyForSignedHash, getSignature } from "./key-utils";
+import { getSignature, isSignatureValid } from "./key-utils";
 import { calculateTransactionHash } from "./hash-utils";
 
 export const signTransaction = (
   pendingTransaction: PendingTransaction<TransactionDetails>,
   goodPoints: number,
+  participantKey: ParticipantKey,
   privateKey: string
 ): SignedTransaction<TransactionDetails> => {
   const transactionHash = calculateTransactionHash({
@@ -22,6 +23,7 @@ export const signTransaction = (
   return {
     ...pendingTransaction,
     goodPoints,
+    participantKey,
     signature,
   };
 };
@@ -29,11 +31,7 @@ export const signTransaction = (
 export const isSignedTransactionValid = (
   signedTransaction: SignedTransaction<TransactionDetails>
 ): boolean => {
-  const { from, signature } = signedTransaction;
-
-  if (from === undefined) {
-    return true;
-  }
+  const { signature } = signedTransaction;
 
   if (signature === undefined || signature.length === 0) {
     return false;
@@ -41,8 +39,5 @@ export const isSignedTransactionValid = (
 
   const hash = calculateTransactionHash(signedTransaction);
 
-  const participantKey: ParticipantKey | undefined =
-    getParticipantKeyForSignedHash(from, hash, signature);
-
-  return participantKey !== undefined;
+  return isSignatureValid(signedTransaction.participantKey, hash, signature);
 };

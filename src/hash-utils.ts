@@ -26,8 +26,14 @@ export const calculateBlockHash = (block: Omit<Block, "hash">): string => {
 
 export const calculateTransactionHash = (
   transaction:
-    | SignedTransaction<TransactionDetails>
-    | BlockTransaction<TransactionDetails>
+    | Omit<
+        Omit<SignedTransaction<TransactionDetails>, "signature">,
+        "participantKey"
+      >
+    | Omit<
+        Omit<BlockTransaction<TransactionDetails>, "signature">,
+        "participantKey"
+      >
 ): string => {
   const { id, from, to, goodPoints, description } = transaction;
   const parts = id || "" + from || "" + to + goodPoints + description;
