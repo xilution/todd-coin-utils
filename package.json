@@ -32,10 +32,11 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@xilution/todd-coin-constants": "^2.0.0",
-    "@xilution/todd-coin-types": "^2.5.0",
+    "@xilution/todd-coin-types": "^3.3.0",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.1",
     "elliptic": "^6.5.4",
+    "lodash": "^4.17.21",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -48,6 +49,7 @@
     "@types/crypto-js": "^4.1.1",
     "@types/elliptic": "^6.4.14",
     "@types/jest": "^27.4.1",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^17.0.23",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
