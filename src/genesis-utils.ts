@@ -1,5 +1,7 @@
 import {
   Block,
+  Organization,
+  OrganizationRole,
   Participant,
   ParticipantKey,
   ParticipantRole,
@@ -13,12 +15,21 @@ import { calculateBlockHash, calculateStringHash } from "./hash-utils";
 import { generateParticipantKey } from "./key-utils";
 import { v4 } from "uuid";
 import { transactionUtils } from "./index";
+import { TODD_COIN_ORGANIZATION_ID } from "@xilution/todd-coin-constants";
 
 const GENESIS_REWARD = 50;
 const GENESIS_HASH =
   "0000000000000000000000000000000000000000000000000000000000000000";
 const GENESIS_NONCE = 0;
 const DEFAULT_GENESIS_PARTICIPANT_KEY_TIME_TO_LIVE_IN_DAYS = 1;
+
+export const createToddCoinOrganization = (): Organization => {
+  return {
+    id: TODD_COIN_ORGANIZATION_ID,
+    name: "Todd Coin",
+    roles: [OrganizationRole.NON_PROFIT],
+  };
+};
 
 export const createGenesisBlock = (
   fromParticipant: Participant,
