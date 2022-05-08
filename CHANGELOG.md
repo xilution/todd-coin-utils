@@ -1,3 +1,23 @@
+# [6.0.0](https://github.com/xilution/todd-coin-utils/compare/v5.5.0...v6.0.0) (2022-05-08)
+
+
+### Features
+
+* bumped todd-coin-types version and added lodash ([3517f91](https://github.com/xilution/todd-coin-utils/commit/3517f91faff54d230ed2865f79be812dfd9c0573))
+* created is signature valid function ([8a66b72](https://github.com/xilution/todd-coin-utils/commit/8a66b72979054b4865b34f9e06fab2843c4ba05d))
+* created type utils ([3bdca3d](https://github.com/xilution/todd-coin-utils/commit/3bdca3d5d00d64455280e1ee4a110333596a97f9))
+* renamed block validation function ([eb019d1](https://github.com/xilution/todd-coin-utils/commit/eb019d1deb78be33732612da02dfe48446930f74))
+* updated genesis functions ([a5942cc](https://github.com/xilution/todd-coin-utils/commit/a5942cca6f62231cce0e917d456380cd7b380693))
+* updated transaction functions ([2cdb8bf](https://github.com/xilution/todd-coin-utils/commit/2cdb8bf633b527efcf3a93ac0253155b6e58529d))
+
+
+### BREAKING CHANGES
+
+* changed function name
+* changed function signature
+* changed function signature
+* renamed function
+
 # [5.5.0](https://github.com/xilution/todd-coin-utils/compare/v5.4.0...v5.5.0) (2022-05-06)
 
 
