@@ -5,6 +5,7 @@ import * as genesisUtils from "./genesis-utils";
 import * as keyUtils from "./key-utils";
 import * as participantUtils from "./participant-utils";
 import * as transactionUtils from "./transaction-utils";
+import * as typeUtils from "./type-utils";
 
 export {
   blockUtils,
@@ -14,4 +15,5 @@ export {
   keyUtils,
   participantUtils,
   transactionUtils,
+  typeUtils,
 };
