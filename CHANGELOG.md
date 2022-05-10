@@ -1,3 +1,10 @@
+# [7.3.0](https://github.com/xilution/todd-coin-utils/compare/v7.2.0...v7.3.0) (2022-05-10)
+
+
+### Features
+
+* moved todd-coin-types back to deps ([869168a](https://github.com/xilution/todd-coin-utils/commit/869168aa6cfc4ae304a0972c4a183998b5704312))
+
 # [7.2.0](https://github.com/xilution/todd-coin-utils/compare/v7.1.0...v7.2.0) (2022-05-08)
 
 
