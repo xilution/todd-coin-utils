@@ -1,3 +1,10 @@
+## [7.3.1](https://github.com/xilution/todd-coin-utils/compare/v7.3.0...v7.3.1) (2022-06-07)
+
+
+### Bug Fixes
+
+* fixed calculate transaction hash ([b177fde](https://github.com/xilution/todd-coin-utils/commit/b177fded4f430525c89aedccfb8434e7feb8153d))
+
 # [7.3.0](https://github.com/xilution/todd-coin-utils/compare/v7.2.0...v7.3.0) (2022-05-10)
 
 
