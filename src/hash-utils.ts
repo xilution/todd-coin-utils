@@ -47,12 +47,17 @@ export const calculateTransactionHash = (
     details,
   } = transaction;
   const parts =
-    id ||
-    "" + fromParticipant ||
-    "" + toParticipant ||
-    "" + fromOrganization ||
-    "" + toOrganization ||
-    "" + goodPoints + description + type + details;
+    (id || "") +
+    (fromParticipant?.id || "") +
+    (toParticipant?.id || "") +
+    (fromOrganization?.id || "") +
+    (toOrganization?.id || "") +
+    goodPoints +
+    description +
+    type +
+    JSON.stringify(details);
+
+  console.log(parts);
 
   return calculateStringHash(parts);
 };
