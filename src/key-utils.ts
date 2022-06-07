@@ -56,18 +56,18 @@ export const getEffectiveParticipantKey = (
 
 export const isSignatureValid = (
   participantKey: ParticipantKey,
-  hash: string,
+  hashHex: string,
   signature: string
 ): boolean => {
   const signingKey: ec.KeyPair = getKeyPairFromPublicKey(participantKey.public);
 
-  return signingKey.verify(hash, signature);
+  return signingKey.verify(hashHex, signature);
 };
 
-export const getSignature = (str: string, privateKey: string): string => {
+export const getSignature = (hashHex: string, privateKey: string): string => {
   const signingKey: ec.KeyPair = getKeyPairFromPrivateKey(privateKey);
 
-  const signature = signingKey.sign(str, "base64");
+  const signature = signingKey.sign(hashHex);
 
   return signature.toDER("hex");
 };
