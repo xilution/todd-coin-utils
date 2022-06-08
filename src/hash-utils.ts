@@ -57,7 +57,5 @@ export const calculateTransactionHash = (
     type +
     JSON.stringify(details);
 
-  console.log(parts);
-
   return calculateStringHash(parts);
 };
