@@ -1,3 +1,10 @@
+## [7.3.2](https://github.com/xilution/todd-coin-utils/compare/v7.3.1...v7.3.2) (2022-06-08)
+
+
+### Bug Fixes
+
+* removed console.log ([8446ffe](https://github.com/xilution/todd-coin-utils/commit/8446ffeacbe4c59a450bd16c077d0ee04f594c1d))
+
 ## [7.3.1](https://github.com/xilution/todd-coin-utils/compare/v7.3.0...v7.3.1) (2022-06-07)
 
 
