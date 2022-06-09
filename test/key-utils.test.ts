@@ -36,8 +36,6 @@ describe("Key Utils Tests", () => {
     let actual: string;
 
     beforeEach(() => {
-      console.log(JSON.stringify(generateParticipantKey()));
-
       actual = getSignature(
         SHA256("Try not. Do or do not. There is no try.").toString(),
         testParticipantKey.private

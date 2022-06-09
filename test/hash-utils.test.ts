@@ -48,7 +48,7 @@ describe("Hash Utils Tests", () => {
 
         it("should return the correct response", () => {
           expect(actual).toEqual(
-            "ceeabad27d33ba2506533d001cf50963a3d3d022130346e890376abc3038db7a"
+            "30fe75f211bfea7a4051c4f19fc6897c7380b5790f31da88b9c1c801a66e0543"
           );
         });
       });
@@ -79,7 +79,7 @@ describe("Hash Utils Tests", () => {
 
         it("should return the correct response", () => {
           expect(actual).toEqual(
-            "386d23a4902bcfa8b1f5dead869eac8e613fafce44e77199e5c263d1db55f2f0"
+            "e1d23ac22e54ce05dd3d78a5f834f707a0bd55ab85a83bc0cbd224a8c5af5444"
           );
         });
       });
@@ -122,7 +122,7 @@ describe("Hash Utils Tests", () => {
 
         it("should return the correct response", () => {
           expect(actual).toEqual(
-            "4f6b31cd73687f5d9a1d23ca0749ed111f5bab853395376a451498745c44e20c"
+            "bb7a7710e689f2ccb16d6bc00279a49d8226dd4c78e20fb6fdd2d8ed69863f17"
           );
         });
       });
@@ -147,7 +147,7 @@ describe("Hash Utils Tests", () => {
 
         it("should return the correct response", () => {
           expect(actual).toEqual(
-            "2cbac7f4e3d5c61dbb1bdd448cfbcb7bb2dbc4c72ad5b7bf701e7f82a3ea52d2"
+            "6a7af40b238053bca6cfddcf4390c9fbbae33d08837e7228c4858d6e67854d83"
           );
         });
       });
@@ -171,7 +171,7 @@ describe("Hash Utils Tests", () => {
 
         it("should return the correct response", () => {
           expect(actual).toEqual(
-            "bec117c10a22a0453980c2859e9498ae9cb9bca176488250fe1875ce017eb939"
+            "80cd1b06737943a5c4c84d3ad57ae70153a11bb5e0719770841692536afcc083"
           );
         });
       });
@@ -207,7 +207,7 @@ describe("Hash Utils Tests", () => {
 
         it("should return the correct response", () => {
           expect(actual).toEqual(
-            "b25d6bfb58e107f34d3b45b3a277e48b4705b9a3c2468d5d39b598cf3dbffb81"
+            "a44a8f5d615c4407b928535844a77dd9fe9d3fa67b30f27bde71038129e0f276"
           );
         });
       });
