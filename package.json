@@ -1,6 +1,6 @@
 {
   "name": "@xilution/todd-coin-utils",
-  "version": "7.3.2",
+  "version": "7.3.3",
   "description": "The Todd Coin Cryptocurrency Utility Functions",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

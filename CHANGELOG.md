@@ -1,3 +1,10 @@
+## [7.3.3](https://github.com/xilution/todd-coin-utils/compare/v7.3.2...v7.3.3) (2022-06-09)
+
+
+### Bug Fixes
+
+* fixed transaction hashing ([79c26bb](https://github.com/xilution/todd-coin-utils/commit/79c26bbf80cc345d35d555ba27ac660d93e88913))
+
 ## [7.3.2](https://github.com/xilution/todd-coin-utils/compare/v7.3.1...v7.3.2) (2022-06-08)
 
 
